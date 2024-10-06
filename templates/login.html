@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Join Global Chat{% endblock %}
+{% block jss %}
+  <style>
+    form{
+      margin: 5rem auto 0 auto;
+      width: 260px;
+      background: var(--dark);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--secondary);
+    }
+    .User, .profile{
+      margin-bottom: 1.3rem;
+    }
+    formn .User{
+      display: flex;
+      flex-direction: column;
+    }form .User div{display:flex}
+    form div input{
+      flex: 1;
+      font-size: 18px;
+      padding: 7px 0px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid var(--light);
+      outline: none;
+      background: var(--secondary);
+      color: var(--light);
+    }input::placeholder{
+      color: #919090;
+    }
+    form .profile{
+      display: flex;
+      gap: 6px;
+    }.profile .left{
+      display: flex;
+      flex: 1;
+    }.profile .left select{
+      width: 100%;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid var(--light);
+      color: var(--light);
+      background: var(--secondary);
+    }.profile .right img{
+      border-radius: 50%;
+      border: 1px solid var(--light);
+    }
+    
+    button{
+      width:100%;
+      padding: 8px 0;
+      border-radius: 20px;
+      background: var(--primary);
+      border:none;
+      color: var(--light);
+    }
+    small{
+      color: var(--danger);
+    }
+  </style>
+  <script>
+  function change_profile() {
+    const img = document.querySelector('img');
+    const select = document.querySelector('select');
+    const baseURL = "{{ url_for('static', filename='profiles/') }}";
+    img.src = baseURL + select.value;
+  }
+</script>
+{% endblock %}
+{% block content %}
+<form method="post" action="/login">
+  <div class="User">
+    <div>
+    <input type="text" placeholder="Username" minlength='3' maxlength="16" required name="username">
+    </div>
+    {% if error %}
+    <small>{{ error }}</small>
+    {% endif %}
+  </div>
+  <div class="profile">
+    <div class="left">
+      <select name="profile" onchange="change_profile()">
+        <option value="default.jpeg" selected hidden>default</option>
+        <option value="profile1.png">Profile 1</option>
+        <option value="profile2.png">Profile 2</option>
+        <option value="profile3.png">Profile 3</option>
+        <option value="profile4.png">Profile 4</option>
+        <option value="profile5.jpeg">Profile 5</option>
+        <option value="profile6.jpeg">Profile 6</option>
+        <option value="profile7.jpeg">Profile 7</option>
+        <option value="profile8.jpeg">Profile 8</option>
+        <option value="profile9.jpeg">Profile 9</option>
+        <option value="profile10.jpeg">Profile 10</option>
+      </select>
+    </div>
+    <div class="right">
+      <img src="{{ url_for('static', filename='profiles/default.jpeg') }}" alt='Profile' width="30">
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
