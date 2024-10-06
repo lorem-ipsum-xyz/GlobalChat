@@ -35,7 +35,7 @@ def connectedss(d):
   chat['users'][rss] = {
     "name": d["name"],
     "profile": d["profile"],
-    "id": rss
+    "id": str(rss)
   }
   chat["online"] += 1
   data = {
@@ -60,7 +60,7 @@ def new_message(message):
 def user_disconnected():
   #print(data)
   sid = request.sid
-  if sid in chat['users']:
+  if str(sid) in chat['users']:
     username = chat['users'][sid]['name']
     chat['online'] -= 1
     del chat['users'][sid]
@@ -73,5 +73,5 @@ def user_disconnected():
     io.emit('chat', data)
   
 if __name__ == '__main__':
-  io.run(app, debug=False)
+  io.run(app)
 # END: October 7, 2024
