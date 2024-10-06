@@ -1,5 +1,5 @@
 # START: October 6, 2024
-from flask import jsonify, Flask, render_template, session, request, redirect, url_for
+from flask import Flask, render_template, session, request, redirect, url_for
 from flask_socketio import SocketIO
 
 app = Flask(__name__)
@@ -43,6 +43,7 @@ def connectedss(d):
     "name": d['name'],
     "connected": True
   }
+  print(data)
   print("User connected: ", d['name'])
   io.emit('chat', data)
 
@@ -69,6 +70,7 @@ def user_disconnected():
       "online": chat['online'],
       "connected": False
     }
+    print(data)
     #print(f"\033[93m{data}\033[0m")
     io.emit('chat', data)
   
