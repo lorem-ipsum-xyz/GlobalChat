@@ -8,16 +8,6 @@ io = SocketIO(app)
 
 chat = {"users": {},"online": 0}
 
-@app.route('/all',methods=['GET'])
-def nxisns():
-  return jsonify(chat)
-
-@app.route('/clear', methods=['GET'])
-def cllle():
-  session.pop('username', None)
-  session.pop('profile', None)
-  return "Done",200
-
 @app.route("/")
 def index():
   name = session.get('username')
@@ -54,8 +44,6 @@ def connectedss(d):
     "connected": True
   }
   print("User connected: ", d['name'])
-  print(chat['users'])
-  print("KEY CON", rss)
   io.emit('chat', data)
 
 
@@ -81,9 +69,9 @@ def user_disconnected():
       "online": chat['online'],
       "connected": False
     }
-    print(f"\033[93m{data}\033[0m")
+    #print(f"\033[93m{data}\033[0m")
     io.emit('chat', data)
   
 if __name__ == '__main__':
-  io.run(app, debug=True)
+  io.run(app, debug=False)
 # END: October 7, 2024
