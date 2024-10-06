@@ -1,0 +1,135 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: Arial, sans-serif
+}
+
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--dark);
+}
+
+header{
+  background: var(--dark);
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 0 0px var(--light);
+  display: flex;
+  border-bottom: 2px solid #5A5A5E;
+  justify-content: space-between;
+}
+header .title h1{
+  font-weight: 370;
+  font-size: 25px;
+  color: var(--light);
+}
+header .links ul{
+  display: flex;
+  gap: 10px;
+  padding: 1px 0;
+}
+header .links ul li{
+  font-size: 23px;
+  align-items: center;
+}
+.facebook i{color: var(--primary)}
+.github i{color: #000000}
+li i{border-radius:50%;box-shadow: 0 0 10px #4A4A4A}
+
+/* START (messages container)*/
+.messages{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  overflow-y: auto;
+}
+
+.other_message, .my_message{
+  padding: 10px;
+}
+.message{
+  display: inline-block;
+  padding: 10px;
+  white-space: normal;
+  word-break: break-all;
+  font-size: 14px;
+  max-width: 90%;
+  color: var(--light);
+}
+
+.my_message .message_container .message{
+  background: var(--primary);
+  float: right;
+  border-radius: 10px 10px 0 10px;
+}
+
+.other_message{
+  display: flex;
+  background: none;
+  gap: 5px
+}
+.other_message .profile{
+  display: flex;
+  align-items: flex-end
+}
+.other_message .profile img{border-radius:50%;width:30px}
+.other_message .message_container{flex: 1}
+.other_message .message_container .message{
+  background: var(--secondary);
+  border-radius: 10px 10px 10px 0;
+}
+.other_message .msg-time small{
+  font-size: 12px;
+  margin-left: 3px;
+  color: #8C8C92;
+}
+
+.announce-container{
+  background: none;
+  padding: 10px 10%;
+}
+.line{
+  width: 100%;
+  height: 1px;
+  background: #585656;
+  text-align: center;
+}.line small{
+  position: relative;
+  top: -10px;
+  background: var(--dark);
+  padding: 0 5px;
+  color: #747272;
+}
+/* END (messages container)*/
+
+.inputs{
+  background: var(--dark);
+  padding: 10px;
+  border-top: 2px solid var(--secondary);
+  display: flex;
+  gap:3px
+}
+.inputs button{
+  font-size: 26px;
+  color: var(--primary);
+  background: none;
+  border: none;
+  padding: 1px 5px;
+}
+.inputs input{
+  padding: 8px 10px;
+  flex: 1;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 20px
+}
+
+@media(min-width: 720px){
+  .message{max-width: 500px}
+  .announce-container{padding: 10px 25%}
+}
