@@ -64,7 +64,7 @@
   function change_profile() {
     const img = document.querySelector('img');
     const select = document.querySelector('select');
-    const baseURL = "{{ url_for('static', filename='profiles/') }}";
+    const baseURL = "https://raw.githubusercontent.com/lorem-ipsum-xyz/GlobalChat/refs/heads/main/static/profiles/";
     img.src = baseURL + select.value;
   }
 </script>
