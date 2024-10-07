@@ -64,7 +64,7 @@
   function change_profile() {
     const img = document.querySelector('img');
     const select = document.querySelector('select');
-    const baseURL = "https://raw.githubusercontent.com/lorem-ipsum-xyz/GlobalChat/refs/heads/main/static/profiles/";
+    const baseURL = "https://raw.githubusercontent.com/lorem-ipsum-xyz/images/refs/heads/main/";
     img.src = baseURL + select.value;
   }
 </script>
@@ -83,15 +83,15 @@
     <div class="left">
       <select name="profile" onchange="change_profile()">
         <option value="default.jpeg" selected hidden>default</option>
-        <option value="profile1.png">Profile 1</option>
-        <option value="profile2.png">Profile 2</option>
-        <option value="profile3.png">Profile 3</option>
+        <option value="profile1.jpeg">Profile 1</option>
+        <option value="profile2.jpeg">Profile 2</option>
+        <option value="profile3.jpeg">Profile 3</option>
         <option value="profile4.png">Profile 4</option>
         <option value="profile5.jpeg">Profile 5</option>
         <option value="profile6.jpeg">Profile 6</option>
         <option value="profile7.jpeg">Profile 7</option>
         <option value="profile8.jpeg">Profile 8</option>
-        <option value="profile9.jpeg">Profile 9</option>
+        <option value="profile9.png">Profile 9</option>
         <option value="profile10.jpeg">Profile 10</option>
       </select>
     </div>
